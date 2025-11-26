@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야팸 트윗 월드컵</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/api.js" type="module" defer></script>
+    <script src="js/login.js" type="module" defer></script>  <script src="js/app.js" type="module" defer></script>
+</head>
+<body>
+<header>
+    <h1><a href="#main" style="color: inherit; text-decoration: none;">🏆 2023 - 2025 야팸 최고의 트윗 월드컵</a></h1>
+    <button onclick="localStorage.clear(); window.location.reload();">로그아웃</button>
+    <div id="userInfo"></div>
+</header>
+
+<main id="app"> </main>
+
+<section id="loginScreen">
+    <h2>닉네임을 입력해 주세요</h2>
+    <form id="loginForm">
+        <input type="text" id="nickname" placeholder="여기에 닉네임을 입력" required>
+        <input type="password" id="password" placeholder="초기 비밀번호를 설정해주세요. 다음 로그인시 비밀번호를 기억해야 로그인이됩니다." required>
+        <button type="submit">월드컵 시작!</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 야팸 트윗 월드컵 프로젝트</p>
+</footer>
+</body>
+</html>
