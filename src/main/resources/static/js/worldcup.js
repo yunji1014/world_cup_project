@@ -120,7 +120,6 @@ function renderByeMatch(candidate) {
                 <div class="candidate-box bye-candidate" data-id="${candidate.id}">
                     <img src="${candidate.imagePath}" alt="${candidate.name}">
                     <div class="candidate-title">${candidate.name}</div>
-                    <div class="selection-guide">이 후보를 선택해주세요!</div>
                 </div>
                 
                 <div class="candidate-box bye-opponent" data-id="bye">

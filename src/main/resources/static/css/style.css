@@ -188,9 +188,10 @@ button:disabled {
 
 .worldcup-card img {
     width: 100%;
-    height: 180px;
+    height: auto;
     object-fit: cover;
     border-bottom: 3px solid var(--color-primary);
+    display: block;
 }
 
 .worldcup-card h3 {

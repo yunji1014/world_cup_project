@@ -27,7 +27,7 @@ export async function renderResultScreen(worldcupId, winnerId) {
     app.innerHTML = `
         <div id="resultScreen">
             <div class="winner-container">
-                <h2>🎉 당신의 최종 우승자! 🎉</h2>
+                <h2>🎉 최종 결과! 🎉</h2>
                 <img src="${winner.imagePath}" alt="${winner.name}">
                 <h3>"${winner.name}"</h3>
                 <p style="font-size: 1.1rem; color: var(--color-primary); margin-top: 10px;">
