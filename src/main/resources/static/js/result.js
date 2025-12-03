@@ -42,7 +42,7 @@ export async function renderResultScreen(worldcupId, winnerId) {
                     <button type="submit">댓글 등록</button>
                 </form>
                 
-                <h3 style="margin-top: 2rem;">모두의 트윗</h3>
+                <h3 style="margin-top: 2rem;">한마디 모음</h3>
                 <div id="commentList">
                     </div>
             </div>
@@ -97,4 +97,27 @@ async function loadComments(worldcupId) {
     } else {
         commentListDiv.innerHTML = '<p style="text-align:center;">아직 댓글이 없습니다. 첫 댓글을 남겨보세요!</p>';
     }
+}
+
+/**
+ * 우승자 결과 없이 댓글 목록만 보여주는 화면을 렌더링합니다.
+ * @param {string} worldcupId - 월드컵 ID
+ */
+export async function renderCommentPage(worldcupId) {
+    const app = document.getElementById('app');
+    if (!currentUser || currentUser.nickname !== 'admin') {
+        alert("🚫 관리자만 접근할 수 있는 페이지입니다.");
+        window.location.hash = '#main'; // 메인 화면으로 강제 이동
+        return; // 함수 실행 중단
+    }
+
+    // 기본 골격 렌더링
+    app.innerHTML = `
+        <div id="resultScreen" class="comments-only-page">
+             <h2 style="margin-bottom: 0.5rem;">💬 월드컵 댓글 관리 (Admin)</h2>
+             </div>
+    `;
+
+    // 기존에 정의된 댓글 로드 함수 재사용하여 데이터 채우기
+    await loadComments(worldcupId);
 }

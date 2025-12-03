@@ -291,9 +291,9 @@ button:disabled {
     /* 타이틀 영역 높이 고정 */
     flex-shrink: 0;
     /* 긴 텍스트 줄임표 처리 */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    line-height: 1.4;
 }
 
 /* --- 결과 및 댓글 화면 (가상) --- */
@@ -381,6 +381,26 @@ button:disabled {
     font-weight: bold;
     text-align: center;
     padding: 5px 0;
+}
+
+/* 보조 버튼 스타일 (댓글 보기 등) */
+.btn-secondary {
+    background-color: var(--color-text-light); /* 흰색 배경 */
+    color: var(--color-primary); /* 핑크색 텍스트 */
+    border: 2px solid var(--color-primary); /* 핑크색 테두리 */
+    margin-top: 10px; /* 위쪽 버튼과의 간격 */
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary); /* 호버 시 연한 핑크 배경 */
+    color: var(--color-text-dark);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 월드컵 카드 내 버튼 간격 조정 */
+.worldcup-card button + .btn-secondary {
+    margin-top: 0px; /* 시작 버튼 바로 밑에 붙도록 마진 조정 */
+    margin-bottom: 15px; /* 카드 하단과의 간격 */
 }
 
 /* --- 미디어 쿼리 (반응형 디자인) --- */

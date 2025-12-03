@@ -44,6 +44,17 @@ export async function renderMainScreen() {
     if (worldcups && worldcups.length > 0) {
         listHtml += '<div id="worldcupList">';
         worldcups.forEach(wc => {
+            const isAdmin = currentUser && currentUser.nickname === 'admin';
+
+            // 💡 관리자일 경우에만 추가할 버튼 HTML 생성
+            let adminCommentBtnHtml = '';
+            if (isAdmin) {
+                adminCommentBtnHtml = `
+            <button class="btn-secondary" onclick="window.location.hash = '#comments/${wc.id}'" style="font-size: 0.9rem;">
+                💬 댓글 관리 (Admin)
+            </button>
+        `;
+            }
             listHtml += `
         <div class="worldcup-card" data-id="${wc.id}">
             <img src="${wc.thumbnailUrl}" alt="${wc.title} 썸네일">

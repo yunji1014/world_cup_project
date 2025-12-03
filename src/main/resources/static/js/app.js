@@ -1,7 +1,8 @@
 import { renderMainScreen } from './main.js';
 import { renderWorldcupScreen } from './worldcup.js';
-import { renderResultScreen } from './result.js';
+import { renderResultScreen, renderCommentPage } from './result.js';
 import {renderCreateScreen, renderRankScreen, renderAdminMainScreen, renderEditScreen} from './admin.js';
+
 import { currentUser } from './login.js'; // 💡 이 줄을 추가해야 합니다!
 
 // **login.js**는 index.html에서 초기 로드되므로 별도로 import하지 않습니다.
@@ -35,6 +36,10 @@ export function router() {
     } else if (hash.startsWith('#result/')) {
         const parts = hash.split('/');
         renderResultScreen(parts[1], parts[2]); // worldcupId, winnerId
+    } else if (hash.startsWith('#comments/')) {
+        // ✨ 새로 추가된 경로 처리 ✨
+        const id = hash.split('/')[1]; // #comments/{id} 에서 ID 추출
+        renderCommentPage(id);
     } else if (hash.startsWith('#admin/create')) {
         renderCreateScreen();
     }else if (hash.startsWith('#admin/edit/')) { // 💡 수정 경로 추가
